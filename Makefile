@@ -6,7 +6,7 @@
 #    By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 12:41:11 by cyferrei          #+#    #+#              #
-#    Updated: 2024/01/18 14:00:12 by cyferrei         ###   ########.fr        #
+#    Updated: 2024/02/06 18:21:24 by cyferrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,8 @@ CC = cc
 RM = rm -rf
 CFLAGS = -Wall -Wextra -Werror -g3
 XFLAGS = -Lmlx_linux -Imlx_linux -lX11 -lXext -lm -lz -Ofast
+MLX_PATH = minilibx-linux/
+LIBFT_SO_LONG_PATH = libft_so_long/
 LIB_MLX = minilibx-linux/libmlx.a
 LIBFT_SO_LONG = libft_so_long/libft_so_long.a
 
@@ -28,19 +30,25 @@ GAME = $(addprefix $(SOURCE), $(MAP) $(DISPLAY) $(MOVE) so_long.c end_game.c)
 SRC = $(GAME)
 OBJ = $(SRC:%.c=%.o)
 
-all: $(NAME)
+all: minilibx-linux $(NAME) 
 
 $(NAME): $(OBJ)
+	@make -sC $(MLX_PATH)
+	@make -sC $(LIBFT_SO_LONG_PATH)
 	$(RM) $(NAME)
 	make all -C ./libft_so_long
 	$(CC) $(CFLAGS) $(OBJ) $(LIB_MLX) $(XFLAGS) $(LIBFT_SO_LONG) -o $(NAME)
 
+minilibx-linux:
+	git clone https://github.com/42Paris/minilibx-linux.git $@
+	
 %.o: %.c
-	$(CC) -c $< -o $(<:%.c=%.o)
+	$(CC) $(CFLAGS) -c $< -o $(<:%.c=%.o)
 
 clean:
 	$(RM) $(OBJ)
 	make clean -C ./libft_so_long
+	make clean -C $(MLX_PATH)
 
 fclean: clean
 	$(RM) $(NAME)

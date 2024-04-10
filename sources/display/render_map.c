@@ -6,7 +6,7 @@
 /*   By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 16:39:40 by cyferrei          #+#    #+#             */
-/*   Updated: 2024/01/23 15:48:08 by cyferrei         ###   ########.fr       */
+/*   Updated: 2024/02/06 18:13:42 by cyferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,10 @@ void	player_init(t_game *game)
 {
 	t_point	point;
 
+	mlx_string_put(game->mlx_pointer, game->windows_pointer, 4,
+		((game->plot.height) * 60), 0xFFFFFF, "Movements: 0");
+	ft_putstr_fd("\rMovements: ", 1);
+	ft_putnbr_fd(game->i.movements, 1);
 	point.y = 0;
 	while (game->plot.map[point.y])
 	{

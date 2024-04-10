@@ -6,7 +6,7 @@
 /*   By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:56:22 by cyferrei          #+#    #+#             */
-/*   Updated: 2024/01/16 17:04:49 by cyferrei         ###   ########.fr       */
+/*   Updated: 2024/02/06 18:36:44 by cyferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	ft_putnbr_fd(int n, int fd);
 char	**ft_split(char const *s, char c);
+char	*ft_strstr(char *haystack, char *needle);
 
 int		ft_printf(const char *input, ...);
 int		print_char(char c);

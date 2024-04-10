@@ -6,7 +6,7 @@
 #    By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/16 12:46:52 by cyferrei          #+#    #+#              #
-#    Updated: 2024/01/16 17:05:07 by cyferrei         ###   ########.fr        #
+#    Updated: 2024/02/06 17:39:18 by cyferrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ SRC = ft_itoa.c \
 		ft_memcpy.c \
 		ft_bzero.c \
 		ft_putnbr_fd.c \
-		ft_split.c
+		ft_split.c \
+		ft_strstr.c
 
 NAME = libft_so_long.a
 OBJS = $(SRC:.c=.o)

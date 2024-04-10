@@ -6,7 +6,7 @@
 /*   By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:17:58 by cyferrei          #+#    #+#             */
-/*   Updated: 2024/01/23 15:21:49 by cyferrei         ###   ########.fr       */
+/*   Updated: 2024/02/06 18:34:31 by cyferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@
 # define LEFT 97
 # define SPEED 1
 
-# define KEY_RELEASE 3
+# define KEY_PRESS 02
 # define DESTROY_NOTIF 17
 # define EXPOSE 12
 
-# define KEY_RELEASE_MASK 2
+# define KEY_PRESS_MASK 1
 # define EXPOSURE_MASK 32768
 # define NO_EVENT_MASK 0
 
@@ -105,6 +105,8 @@ enum			e_state
 	file_error = 3,
 	map_char_error = 4,
 	map_design_error = 5,
+	img_error = 6,
+	env_error = 7,
 };
 
 enum			e_direction

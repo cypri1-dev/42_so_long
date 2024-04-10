@@ -6,11 +6,19 @@
 /*   By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 19:50:53 by cyferrei          #+#    #+#             */
-/*   Updated: 2024/01/16 16:46:46 by cyferrei         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:31:41 by cyferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
+
+void	end_game_bis(char *message, t_game *game)
+{
+	ft_printf(RED "Error\n%s\n" ENDC, message);
+	destroy_image(game);
+	exit(1);
+	return ;
+}
 
 /*check if point.x == point.y -- same size --*/
 

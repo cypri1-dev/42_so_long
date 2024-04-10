@@ -6,7 +6,7 @@
 /*   By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:30:16 by cyferrei          #+#    #+#             */
-/*   Updated: 2024/01/23 15:39:37 by cyferrei         ###   ########.fr       */
+/*   Updated: 2024/02/06 16:45:50 by cyferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 /*function from mlx create image from xpm file*/
 
-t_image	new_sprite(void *mlx, char *path)
+t_image	new_sprite(t_game *game, char *path)
 {
 	t_image	img;
 
-	img.ptr = mlx_xpm_file_to_image(mlx, path, &img.x, &img.y);
+	img.ptr = mlx_xpm_file_to_image(game->mlx_pointer, path, &img.x, &img.y);
+	if (img.ptr == NULL)
+		end_game("Load image failed", game, img_error);
 	return (img);
 }
 
@@ -45,21 +47,22 @@ void	init_window(t_game *game)
 /*function to init images with mlx*/
 
 void	init_images(t_game *game)
-{
-	game->wall = new_sprite(game->mlx_pointer, WALL_PATH);
-	game->ground = new_sprite(game->mlx_pointer, GROUND_PATH);
-	game->item = new_sprite(game->mlx_pointer, ITEM_PATH);
-	game->item_2 = new_sprite(game->mlx_pointer, ITEM_PATH_2);
-	game->item_3 = new_sprite(game->mlx_pointer, ITEM_PATH_3);
-	game->door_close = new_sprite(game->mlx_pointer, DOOR_PATH_CLOSE);
-	game->door_open = new_sprite(game->mlx_pointer, DOOR_PATH_OPEN);
-	game->character = new_sprite(game->mlx_pointer, CHARACTER_PATH);
-	game->character_l = new_sprite(game->mlx_pointer, CHARACTER_L_PATH);
-	game->character_r = new_sprite(game->mlx_pointer, CHARACTER_R_PATH);
-	game->character_u = new_sprite(game->mlx_pointer, CHARACTER_U_PATH);
-	game->monster = new_sprite(game->mlx_pointer, MONSTER_PATH);
-	game->monster_2 = new_sprite(game->mlx_pointer, MONSTER_PATH_2);
-	game->monster_3 = new_sprite(game->mlx_pointer, MONSTER_PATH_3);
+{	
+	init_img_null(game);
+	game->wall = new_sprite(game, WALL_PATH);
+	game->ground = new_sprite(game, GROUND_PATH);
+	game->item = new_sprite(game, ITEM_PATH);
+	game->item_2 = new_sprite(game, ITEM_PATH_2);
+	game->item_3 = new_sprite(game, ITEM_PATH_3);
+	game->door_close = new_sprite(game, DOOR_PATH_CLOSE);
+	game->door_open = new_sprite(game, DOOR_PATH_OPEN);
+	game->character = new_sprite(game, CHARACTER_PATH);
+	game->character_l = new_sprite(game, CHARACTER_L_PATH);
+	game->character_r = new_sprite(game, CHARACTER_R_PATH);
+	game->character_u = new_sprite(game, CHARACTER_U_PATH);
+	game->monster = new_sprite(game, MONSTER_PATH);
+	game->monster_2 = new_sprite(game, MONSTER_PATH_2);
+	game->monster_3 = new_sprite(game, MONSTER_PATH_3);
 	return ;
 }
 

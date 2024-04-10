@@ -6,11 +6,29 @@
 /*   By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:32:32 by cyferrei          #+#    #+#             */
-/*   Updated: 2024/01/22 17:40:01 by cyferrei         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:30:01 by cyferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
+
+void	init_img_null(t_game *game)
+{
+	game->wall.ptr = NULL;
+	game->ground.ptr = NULL;
+	game->item.ptr = NULL;
+	game->item_2.ptr = NULL;
+	game->item_3.ptr = NULL;
+	game->door_close.ptr = NULL;
+	game->door_open.ptr = NULL;
+	game->character.ptr = NULL;
+	game->character_l.ptr = NULL;
+	game->character_r.ptr = NULL;
+	game->character_u.ptr = NULL;
+	game->monster.ptr = NULL;
+	game->monster_2.ptr = NULL;
+	game->monster_3.ptr = NULL;
+}
 
 void	print_map_string(t_game *game)
 {

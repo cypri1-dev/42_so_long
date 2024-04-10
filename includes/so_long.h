@@ -6,7 +6,7 @@
 /*   By: cyferrei <cyferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 16:51:39 by cyferrei          #+#    #+#             */
-/*   Updated: 2024/01/23 15:02:58 by cyferrei         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:32:01 by cyferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include <stdarg.h>
 # include <stdbool.h>
 # include <stdlib.h>
-# include <time.h>
 # include <unistd.h>
 
 /*strings functions prototypes*/
@@ -37,6 +36,7 @@ char		*ft_strdup(const char *s);
 char		*ft_strchr(const char *s, int c);
 void		ft_putnbr_fd(int n, int fd);
 char		**ft_split(char const *s, char c);
+char		*ft_strstr(char *haystack, char *needle);
 
 /*printf functions protoypes*/
 
@@ -54,7 +54,7 @@ int			print_percent(void);
 char		*get_next_line(int fd);
 char		*obtain_rest(char *buffer);
 char		*extract_line(char *buffer);
-static char	*read_file(char *final_buffer, int fd);
+char		*read_file(char *final_buffer, int fd);
 char		*ft_strdup_gnl(const char *s);
 void		*gnl_calloc(size_t nmeb, size_t size);
 char		*gnl_strjoin(char const *s1, char const *s2);
@@ -65,7 +65,9 @@ char		*gnl_strchr(char *s, int c);
 /*game functions prototypes*/
 
 void		end_game(char *message, t_game *game, enum e_state i);
+void		end_game_bis(char *message, t_game *game);
 void		destroy_image(t_game *game);
+void		destroy_image_bonus(t_game *game);
 void		free_map(t_game *game);
 void		init_map(t_game *game, char *path);
 int			open_file(char *path);
@@ -91,7 +93,7 @@ void		free_map_test(char **map, int x);
 
 void		init_window(t_game *game);
 void		init_images(t_game *game);
-t_image		new_sprite(void *mlx, char *path);
+t_image		new_sprite(t_game *game, char *path);
 bool		is_not_window_valid(t_game *game);
 t_point		get_screen_size(t_game *game);
 
@@ -108,5 +110,7 @@ void		render_map(t_game *game);
 void		print_map_string(t_game *game);
 void		print_enemies(t_game *game, int y, int x);
 void		print_items(t_game *game, int y, int x);
+void		init_img_null(t_game *game);
+int			check_env(char **envp);
 
 #endif
