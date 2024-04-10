@@ -4,6 +4,8 @@
 ## Description
 so_long is a "collect the coins" style game project developed as part of the curriculum at Ecole 42. Players control a character tasked with collecting objects while navigating obstacles. The game utilizes the MinilibX library for an interactive graphical interface. Objectives include image manipulation, handling user events, and creating custom game maps from text files.
 
+![GIF](https://github.com/cypri1-dev/42_so_long/blob/main/screen_gif/so_long.gif)
+
 ## Project Components Table
 The following table describes the various components and files included in the so_long project:
 
@@ -51,3 +53,22 @@ cd 42_so_long
 ```bash
 ./so_long TESTS/[*.ber]
 ```
+## Features
+
+1. **Interactive Graphical Interface:** Utilizes the MinilibX library to create an interactive graphical interface for the game.
+   
+2. **Character Control:** Allows the player to control a character using the keyboard's arrow keys.
+   
+3. **Custom Maps:** Supports reading custom game maps from specific format text files.
+   
+4. **Object Collection:** Implements the mechanic of collecting objects scattered throughout the map by the main character.
+   
+5. **Collision Handling:** Manages collisions between the character and walls as well as other elements on the map.
+   
+6. **Information Display:** Displays the number of objects collected and the number of movements made by the player.
+   
+7. **Victory/Defeat Messages:** Displays a victory message when all objects have been collected and a defeat message in case of collision with an obstacle or enemy.
+   
+8. **Animations:** Integrates animations to make character movement and object collection more fluid and dynamic.
+   
+9. **Difficulty Levels:** Supports the creation of variable difficulty levels by modifying the arrangement of objects and obstacles on the map.
